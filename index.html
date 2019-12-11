@@ -127,8 +127,10 @@ $.getJSON("food_access.geojson",function(data){
               pointToLayer: function(feature, latlng) {
                 return new L.CircleMarker(latlng, {    
                   radius: 4,
-                  opacity: 8,
+                  stroke:true,
+                
                   fillColor: setColorFunc(feature.properties.TYPE_SPECIFIC),
+                  fillOpacity: 2,
                   color: "black",
                   weight: .5,
                 });
@@ -147,7 +149,7 @@ $.getJSON("food_access.geojson",function(data){
               }
           }).addTo(map);
       });
-
+      
       function highlightFeature(e){
           var layer = e.target;
 
@@ -185,8 +187,8 @@ $.getJSON("food_access.geojson",function(data){
    
      
       var div = L.DomUtil.create('div', 'legend');
-      div.innerHTML += '<b>Schools </b><br />';
-      div.innerHTML += 'by Type of School <br />';
+      div.innerHTML += '<b>Philadelphia Schools </b><br />';
+      div.innerHTML += 'by School Type <br />';
       div.innerHTML += '<br>';
       div.innerHTML += '<i style="background: #ff0000"></i><p>Private</p>';
       div.innerHTML += '<i style="background: #0000ff"></i><p>District</p>';
